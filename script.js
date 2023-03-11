@@ -157,7 +157,7 @@ team1 > team2 && console.log('Team 2 is more likely to win'); */
 
 // * Coding Challenge 3
 
-const gameEvents = new Map([
+/*const gameEvents = new Map([
   [17, 'Goal'],
   [36, 'Substitution'],
   [47, 'Goal'],
@@ -183,6 +183,26 @@ console.log(
   `An event happened, on average, every ${time / gameEvents.size} minutes`
 );
 
-for (const [key, value] of gameEvents) {
-  console.log('');
-}
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? 'First' : 'Second';
+  console.log(`[${half} Half]${min}:${event}`);
+}*/
+
+// * Challenge 4
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+
+  for (const row of rows) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(output);
+  }
+});
